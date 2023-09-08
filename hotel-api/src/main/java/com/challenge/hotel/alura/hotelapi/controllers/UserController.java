@@ -4,7 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -38,7 +40,7 @@ public class UserController {
 
     @GetMapping
     public Page<DataListUsers> listUsers(Pageable pagination) {
-        return userRepository.findAll(pagination).map(DataListUsers::new);
+        return userRepository.findAllByActiveTrue(pagination).map(DataListUsers::new);
     }
     
     @PutMapping
@@ -47,6 +49,13 @@ public class UserController {
         
         var user = userRepository.getReferenceById(data.id());
         user.updateData(data);
+    }
+
+    @DeleteMapping("/{id}")
+    @Transactional
+    public void deleteUser(@PathVariable Long id) {
+        var user = userRepository.getReferenceById(id);
+        user.setActive(false);
     }
 
 }

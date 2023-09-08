@@ -27,8 +27,10 @@ public class UserSystem {
 	private String	email;
 	private String	login;
 	private String	password;
+	private Boolean active;
 	
 	public UserSystem(DataRegisterUser data) {
+		this.active = true;
 		this.name = data.name();
 		this.email = data.email();
 		this.login = data.login();
