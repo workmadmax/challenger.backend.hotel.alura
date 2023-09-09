@@ -31,9 +31,6 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
-
-    
-
     @PostMapping
     @Transactional
     public ResponseEntity<DetailUser> registerUser(@RequestBody @Valid DataRegisterUser data, UriComponentsBuilder uriBuilder) {
