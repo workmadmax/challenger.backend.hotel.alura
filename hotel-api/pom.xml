@@ -61,6 +61,27 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-validation</artifactId>
 		</dependency>
+ 
+   <dependency>
+     <groupId>com.toedter</groupId>
+     <artifactId>jcalendar</artifactId>
+     <version>1.4</version>
+   </dependency>
+
+	<!-- https://mvnrepository.com/artifact/org.swinglabs/swingx -->
+	<dependency>
+		<groupId>org.swinglabs</groupId>
+		<artifactId>swingx</artifactId>
+		<version>1.0</version>
+	</dependency>
+
+	<!-- https://mvnrepository.com/artifact/org.swinglabs.swingx/swingx-core -->
+	<dependency>
+		<groupId>org.swinglabs.swingx</groupId>
+		<artifactId>swingx-core</artifactId>
+		<version>1.6.5-1</version>
+	</dependency>
+
  </dependencies>
 
 	<build>
