@@ -1,8 +1,5 @@
 package com.challenge.hotel.alura.hotelapi.domain.reservation;
 
-
-import com.challenge.hotel.alura.hotelapi.domain.user_system.DataUpdateUsers;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;

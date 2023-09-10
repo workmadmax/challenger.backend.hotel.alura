@@ -20,9 +20,6 @@ import com.challenge.hotel.alura.hotelapi.domain.reservation.DataUpdateReserve;
 import com.challenge.hotel.alura.hotelapi.domain.reservation.DetailReserve;
 import com.challenge.hotel.alura.hotelapi.domain.reservation.Reservations;
 import com.challenge.hotel.alura.hotelapi.domain.reservation.ReservationsRepository;
-import com.challenge.hotel.alura.hotelapi.domain.user_system.DataListUsers;
-import com.challenge.hotel.alura.hotelapi.domain.user_system.DataUpdateUsers;
-import com.challenge.hotel.alura.hotelapi.domain.user_system.DetailUser;
 
 import jakarta.validation.Valid;
 

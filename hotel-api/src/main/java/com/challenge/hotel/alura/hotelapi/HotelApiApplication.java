@@ -10,5 +10,4 @@ public class HotelApiApplication {
 		SpringApplication.run(HotelApiApplication.class, args);
 		System.out.println("Hotel API is running! madmax42");
 	}
-
 }
