@@ -46,4 +46,8 @@ public class UserSystem {
 			this.email = data.email();
 		}
 	}
+
+	public Boolean checkPassword(String password) {
+		return this.password.equals(password);
+	}
 }

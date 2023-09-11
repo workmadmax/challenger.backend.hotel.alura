@@ -1,23 +1,31 @@
 package com.challenge.hotel.alura.hotelapi.resources.views;
 
-import java.awt.EventQueue;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import java.awt.Color;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.ImageIcon;
-import javax.swing.JTextField;
-import javax.swing.JSeparator;
-import java.awt.SystemColor;
+import java.awt.EventQueue;
 import java.awt.Font;
-import javax.swing.JPasswordField;
-import javax.swing.SwingConstants;
+import java.awt.SystemColor;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JSeparator;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
+
+import com.challenge.hotel.alura.hotelapi.domain.user_system.UserRepository;
+import com.challenge.hotel.alura.hotelapi.domain.user_system.UserSystem;
+
+@ComponentScan
 public class Login extends JFrame {
 
 	/**
@@ -29,6 +37,9 @@ public class Login extends JFrame {
 	private JPasswordField txtSenha;
 	int xMouse, yMouse;
 	private JLabel labelExit;
+
+	@Autowired
+	private UserRepository userRepository;
 
 	/**
 	 * Launch the application.
@@ -50,6 +61,7 @@ public class Login extends JFrame {
 	 * Create the frame.
 	 */
 	public Login() {
+
 		setResizable(false);
 		setUndecorated(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -237,17 +249,17 @@ public class Login extends JFrame {
 	}
 
 	private void Login() {
-		String Usuario = "admin";
-		String Senha = "admin";
-
-		String senhaa = new String(txtSenha.getPassword());
-
-		if (txtUsuario.getText().equals(Usuario) && senhaa.equals(Senha)) {
-			MenuUsuario menu = new MenuUsuario();
-			menu.setVisible(true);
-			dispose();
+		String login = txtUsuario.getText();
+		String inputPassword = new String(txtSenha.getPassword());
+		UserSystem user = userRepository.findByLogin(login);
+		if (user != null && user.checkPassword(inputPassword)) {
+			// Autenticação bem-sucedida
+			// MenuUsuario menu = new MenuUsuario();
+			// menu.setVisible(true);
+			System.out.println("logado");
+			// dispose();
 		} else {
-			JOptionPane.showMessageDialog(this, "Usuario ou Senha não válidos");
+			JOptionPane.showMessageDialog(this, "Nome de usuário ou senha inválidos");
 		}
 	}
 
