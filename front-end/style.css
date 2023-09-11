@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.corpo {
+    background-color: rgb(159, 179, 155);
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-login {
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-title {
+    margin: 40px 0 40px 0;
+    color: rgb(2, 7, 28);
+}
+
+
+.send-btn {
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: rgb(2, 7, 28);
+    color: rgb(253, 255, 253);
+    font-weight: bold;
+}
